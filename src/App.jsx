@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "./Components/Card";
 
 function App() {
   const [loading, setLoading] = useState();
@@ -73,6 +74,9 @@ function App() {
       ) : (
         <p>No news available</p>
       )}
+
+      <Card />
+
       {/* <Header />
       <div>
         <SearchBar />
