@@ -12,38 +12,38 @@ function App() {
   const [url, setUrl] = useState("https://content.guardianapis.com/search");
 
   useEffect(() => {
-    if(searchParams != null) {
-    setLoading(true);
-    axios
-      .get(url, {
-        params: searchParams,
-      })
-      .then(function (response) {
-        console.log(response.data.response.results);
-        setNewsData(response.data.response.results);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        setLoading(false);
-      });
+    if (searchParams != null) {
+      setLoading(true);
+      axios
+        .get(url, {
+          params: searchParams,
+        })
+        .then(function (response) {
+          console.log(response.data.response.results);
+          setNewsData(response.data.response.results);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+          setLoading(false);
+        });
     }
-
   }, [searchParams]);
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log(e.currentTarget.elements.dateInput.value);
-    const newsDate = e.currentTarget.elements.dateInput.value;
+    let newsDate = e.currentTarget.elements.dateInput.value;
+    console.log(newsDate)
     setSearchParams((prev) => ({
       ...prev,
       "from-date": newsDate,
       "to-date": newsDate,
-      "api-key": "1d446d9b-1d16-4de9-b5fb-8f53b59e012b",
+      "api-key": import.meta.env.VITE_API_KEY,
       "order-by": "newest",
       "use-date": "published",
-      "show-fields": "bodyText",
+      "show-fields": "bodyText"
     }));
   }
 
@@ -53,7 +53,6 @@ function App() {
         <input
           id="dateInput"
           type="date"
-          placeholder="Input a random date"
         ></input>
         <button type="submit">Submit</button>
       </form>
@@ -69,15 +68,17 @@ function App() {
             <p key={news.id + "text"}>
               {news.fields.bodyText.substring(0, 200) + "..."}
             </p> */}
-            <Card title={news.webTitle} date={news.webPublicationDate} link={news.webUrl} description={news.fields.bodyText.substring(0, 200) + "..."} />
+            <Card
+              title={news.webTitle}
+              date={news.webPublicationDate}
+              link={news.webUrl}
+              description={news.fields.bodyText.substring(0, 200) + "..."}
+            />
           </div>
         ))
       ) : (
         <p>No news available</p>
       )}
-{/* 
-      <Card title={news.webTitle} date={news.webPublicationDate} link={news.webUrl} description={news.fields.bodyText.substring(0, 200) + "..."} /> */}
-
     </>
   );
 }
