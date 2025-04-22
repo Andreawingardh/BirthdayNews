@@ -7,17 +7,12 @@ function App() {
   const [loading, setLoading] = useState();
   const [newsData, setNewsData] = useState([]);
   const [newsYear, setNewsYear] = useState("2025");
-  const [newsDate, setNewsDate] = useState();
-  const [searchParams, setSearchParams] = useState({
-    "api-key": "1d446d9b-1d16-4de9-b5fb-8f53b59e012b",
-    "from date": `${newsDate}`,
-    "to-date": `${newsDate}`,
-    "order-by": "newest",
-    "use-date": "published",
-  });
+  const [dateOfNews, setDateOfNews] = useState();
+  const [searchParams, setSearchParams] = useState();
   const [url, setUrl] = useState("https://content.guardianapis.com/search");
 
   useEffect(() => {
+    if(searchParams != null) {
     setLoading(true);
     axios
       .get(url, {
@@ -33,12 +28,23 @@ function App() {
       .finally(function () {
         setLoading(false);
       });
-  }, [newsDate]);
+    }
+
+  }, [searchParams]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    setNewsDate(e.currentTarget.elements.dateInput.value);
-    console.log(newsDate);
+    console.log(e.currentTarget.elements.dateInput.value);
+    const newsDate = e.currentTarget.elements.dateInput.value;
+    setSearchParams((prev) => ({
+      ...prev,
+      "from-date": newsDate,
+      "to-date": newsDate,
+      "api-key": "1d446d9b-1d16-4de9-b5fb-8f53b59e012b",
+      "order-by": "newest",
+      "use-date": "published",
+      "show-fields": "bodyText",
+    }));
   }
 
   return (
@@ -53,8 +59,18 @@ function App() {
       </form>
       {loading && <p>Loading...</p>}
       <h2>Guardian News</h2>
-      {newsDate && newsData && newsData.length > 0 ? (
-        newsData.map((news) => <h1 key={news.id}>{news.webTitle}</h1>)
+      {newsData && newsData.length > 0 ? (
+        newsData.map((news) => (
+          <div key={news.id + "div"}>
+            <a href={news.webUrl}>
+              <h1 key={news.id}>{news.webTitle}</h1>
+            </a>
+            <p key={news.id + "date"}>{news.webPublicationDate}</p>
+            <p key={news.id + "text"}>
+              {news.fields.bodyText.substring(0, 200) + "..."}
+            </p>
+          </div>
+        ))
       ) : (
         <p>No news available</p>
       )}
