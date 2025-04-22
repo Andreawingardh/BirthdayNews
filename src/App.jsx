@@ -61,17 +61,19 @@ function App() {
       {newsData && newsData.length > 0 ? (
         newsData.map((news) => (
           <div key={news.id + "div"}>
-            <a href={news.webUrl}>
+            {/* <a href={news.webUrl}>
               <h1 key={news.id}>{news.webTitle}</h1>
             </a>
             <p key={news.id + "date"}>{news.webPublicationDate}</p>
             <p key={news.id + "text"}>
               {news.fields.bodyText.substring(0, 200) + "..."}
-            </p>
+            </p> */}
+            <Card title={news.webTitle} date={news.webPublicationDate} link={news.webUrl} description={news.fields.bodyText.substring(0, 200) + "..."} />
           </div>
         ))
       ) : (
         <p>No news available</p>
+
       )} */}
 
       <h3>This happened one year ago on this date:</h3>
@@ -92,6 +94,7 @@ function App() {
         <Card />
         <Card />
       </div>
+
     </>
   );
 }

@@ -21,15 +21,15 @@ const NewsCardP = styled.p`
   color: #666;
 `;
 
-const Card = () => {
+const Card = ({title, date, description, link}) => {
   return (
     <NewsCard>
-      <NewsCardH2>News Title</NewsCardH2>
+      <NewsCardH2>{title}</NewsCardH2>
       <NewsCardP>
-        This is a brief description of the news article. It provides a quick
-        overview of the content.
+        {date}
+        {description}
       </NewsCardP>
-      <Button text="Read More" />
+      <a href={link}><Button text="Read More" /></a>
     </NewsCard>
   );
 };
