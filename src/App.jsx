@@ -12,24 +12,23 @@ function App() {
   const [url, setUrl] = useState("https://content.guardianapis.com/search");
 
   useEffect(() => {
-    if(searchParams != null) {
-    setLoading(true);
-    axios
-      .get(url, {
-        params: searchParams,
-      })
-      .then(function (response) {
-        console.log(response.data.response.results);
-        setNewsData(response.data.response.results);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        setLoading(false);
-      });
+    if (searchParams != null) {
+      setLoading(true);
+      axios
+        .get(url, {
+          params: searchParams,
+        })
+        .then(function (response) {
+          console.log(response.data.response.results);
+          setNewsData(response.data.response.results);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+          setLoading(false);
+        });
     }
-
   }, [searchParams]);
 
   function handleSubmit(e) {
@@ -57,7 +56,7 @@ function App() {
         ></input>
         <button type="submit">Submit</button>
       </form>
-      {loading && <p>Loading...</p>}
+      {/* {loading && <p>Loading...</p>}
       <h2>Guardian News</h2>
       {newsData && newsData.length > 0 ? (
         newsData.map((news) => (
@@ -73,22 +72,26 @@ function App() {
         ))
       ) : (
         <p>No news available</p>
-      )}
+      )} */}
 
-      <Card />
-
-      {/* <Header />
-      <div>
-        <SearchBar />
-        <Button></Button>
+      <h3>This happened one year ago on this date:</h3>
+      <div className="card-container">
+        <Card />
+        <Card />
+        <Card />
       </div>
-      <section>
-        <Text variant="header"></Text>
-        <div>
-          <Text variant="paragraph"></Text>
-        </div>
-      </section>
-      <Footer /> */}
+      <h3>This happened five years ago on to this date:</h3>
+      <div className="card-container">
+        <Card />
+        <Card />
+        <Card />
+      </div>
+      <h3>This happened ten years ago on this date:</h3>
+      <div className="card-container">
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </>
   );
 }

@@ -9,10 +9,6 @@ const StyledButton = styled.button`
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-
-  &:hover {
-    background-color: #640f7e;
-  }
 `;
 
 const Button = ({ text }) => {
