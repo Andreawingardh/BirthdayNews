@@ -1,32 +1,29 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function useFetch(url, params) {
+export default function useFetch(url, searchParams) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    async function fetchData() {
+    if (searchParams != null) {
       setLoading(true);
-
       axios
         .get(url, {
-          params: {
-            params,
-          },
+          params: searchParams,
         })
         .then(function (response) {
-          console.log(response);
-          console.log(response.results.data);
+          console.log(response.data.response.results);
+          setData(response.data.response.results);
         })
         .catch(function (error) {
-          // handle error
           console.log(error);
         })
         .finally(function () {
-          // always executed
+          setLoading(false);
         });
     }
-  }, [url]);
+  }, [searchParams]);
   return { data, error, loading };
 }
