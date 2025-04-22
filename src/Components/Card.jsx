@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Button from "./Button";
 
 const NewsCard = styled.div`
   background-color: #f9f9f9;
@@ -6,7 +7,7 @@ const NewsCard = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
   margin: 16px;
-  width: 80%;
+  width: 800px;
   height: 200px;
 `;
 
@@ -28,7 +29,7 @@ const Card = () => {
         This is a brief description of the news article. It provides a quick
         overview of the content.
       </NewsCardP>
-      <button>Read More</button>
+      <Button text="Read More" />
     </NewsCard>
   );
 };
