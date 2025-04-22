@@ -2,34 +2,42 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./Components/Card";
+import useFetch from "./hooks/useFetch";
 
 function App() {
-  const [loading, setLoading] = useState();
   const [newsData, setNewsData] = useState([]);
   const [newsYear, setNewsYear] = useState("2025");
   const [dateOfNews, setDateOfNews] = useState();
   const [searchParams, setSearchParams] = useState();
   const [url, setUrl] = useState("https://content.guardianapis.com/search");
+  const { data, error, loading } = useFetch(url, searchParams);
 
   useEffect(() => {
-    if (searchParams != null) {
-      setLoading(true);
-      axios
-        .get(url, {
-          params: searchParams,
-        })
-        .then(function (response) {
-          console.log(response.data.response.results);
-          setNewsData(response.data.response.results);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .finally(function () {
-          setLoading(false);
-        });
+    if (data) {
+      setNewsData(data);
     }
-  }, [searchParams]);
+  }, [data]);
+
+  // useEffect(() => {
+  //   if (searchParams != null) {
+  //     setLoading(true);
+  //     axios
+  //       .get(url, {
+  //         params: searchParams,
+  //       })
+  //       .then(function (response) {
+  //         console.log(response.data.response.results);
+  //         setNewsData(response.data.response.results);
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error);
+  //       })
+  //       .finally(function () {
+  //         setLoading(false);
+  //       });
+  //   }
+  // }, [searchParams]);
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -59,15 +67,8 @@ function App() {
       {loading && <p>Loading...</p>}
       <h2>Guardian News</h2>
       {newsData && newsData.length > 0 ? (
-        newsData.map((news) => (
+        newsData.slice(0,3).map((news) => (
           <div key={news.id + "div"}>
-            {/* <a href={news.webUrl}>
-              <h1 key={news.id}>{news.webTitle}</h1>
-            </a>
-            <p key={news.id + "date"}>{news.webPublicationDate}</p>
-            <p key={news.id + "text"}>
-              {news.fields.bodyText.substring(0, 200) + "..."}
-            </p> */}
             <Card
               title={news.webTitle}
               date={news.webPublicationDate}
