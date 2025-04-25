@@ -122,7 +122,7 @@ function App() {
             </div>
           ))
         ) : (
-          <p>No news available</p>
+          <p>Please select a date.</p>
         )}
       </div>
       <h3>This happened five years ago on to this date:</h3>
@@ -139,7 +139,7 @@ function App() {
             </div>
           ))
         ) : (
-          <p>No news available</p>
+          <p>Please select a date.</p>
         )}
       </div>
       <h3>This happened ten years ago on this date:</h3>
@@ -156,7 +156,7 @@ function App() {
             </div>
           ))
         ) : (
-          <p>No news available</p>
+          <p>Please select a date.</p>
         )}
       </div>
     </>
