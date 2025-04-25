@@ -7,8 +7,8 @@ const NewsCard = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
   margin: 16px;
-  width: 800px;
-  height: 200px;
+  max-width: 400px;
+  max-height: 400px;
 `;
 
 const NewsCardH2 = styled.h2`
@@ -21,7 +21,7 @@ const NewsCardP = styled.p`
   color: #666;
 `;
 
-const Card = ({title, date, description, link}) => {
+const Card = ({ title, date, description, link }) => {
   return (
     <NewsCard>
       <NewsCardH2>{title}</NewsCardH2>
@@ -29,7 +29,9 @@ const Card = ({title, date, description, link}) => {
         {date}
         {description}
       </NewsCardP>
-      <a href={link}><Button text="Read More" /></a>
+      <a href={link}>
+        <Button text="Read More" />
+      </a>
     </NewsCard>
   );
 };

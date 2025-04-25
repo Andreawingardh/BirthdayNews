@@ -109,50 +109,56 @@ function App() {
       {oneYearLoading && <p>Loading...</p>}
 
       <h3>This happened one year ago on this date:</h3>
-      {newsDataOneYearAgo && newsDataOneYearAgo.length > 0 ? (
-        newsDataOneYearAgo.slice(0, 3).map((news) => (
-          <div key={news.id + "div"}>
-            <Card
-              title={news.webTitle}
-              date={news.webPublicationDate}
-              link={news.webUrl}
-              description={news.fields.bodyText.substring(0, 200) + "..."}
-            />
-          </div>
-        ))
-      ) : (
-        <p>No news available</p>
-      )}
+      <div className="card-container">
+        {newsDataOneYearAgo && newsDataOneYearAgo.length > 0 ? (
+          newsDataOneYearAgo.slice(0, 3).map((news) => (
+            <div key={news.id + "div"}>
+              <Card
+                title={news.webTitle}
+                date={news.webPublicationDate}
+                link={news.webUrl}
+                description={news.fields.bodyText.substring(0, 200) + "..."}
+              />
+            </div>
+          ))
+        ) : (
+          <p>No news available</p>
+        )}
+      </div>
       <h3>This happened five years ago on to this date:</h3>
-      {newsDataFiveYearsAgo && newsDataFiveYearsAgo.length > 0 ? (
-        newsDataFiveYearsAgo.slice(0, 3).map((news) => (
-          <div key={news.id + "div"}>
-            <Card
-              title={news.webTitle}
-              date={news.webPublicationDate}
-              link={news.webUrl}
-              description={news.fields.bodyText.substring(0, 200) + "..."}
-            />
-          </div>
-        ))
-      ) : (
-        <p>No news available</p>
-      )}
+      <div className="card-container">
+        {newsDataFiveYearsAgo && newsDataFiveYearsAgo.length > 0 ? (
+          newsDataFiveYearsAgo.slice(0, 3).map((news) => (
+            <div key={news.id + "div"}>
+              <Card
+                title={news.webTitle}
+                date={news.webPublicationDate}
+                link={news.webUrl}
+                description={news.fields.bodyText.substring(0, 200) + "..."}
+              />
+            </div>
+          ))
+        ) : (
+          <p>No news available</p>
+        )}
+      </div>
       <h3>This happened ten years ago on this date:</h3>
-      {newsDataTenYearsAgo && newsDataTenYearsAgo.length > 0 ? (
-        newsDataTenYearsAgo.slice(0, 3).map((news) => (
-          <div key={news.id + "div"}>
-            <Card
-              title={news.webTitle}
-              date={news.webPublicationDate}
-              link={news.webUrl}
-              description={news.fields.bodyText.substring(0, 200) + "..."}
-            />
-          </div>
-        ))
-      ) : (
-        <p>No news available</p>
-      )}
+      <div className="card-container">
+        {newsDataTenYearsAgo && newsDataTenYearsAgo.length > 0 ? (
+          newsDataTenYearsAgo.slice(0, 3).map((news) => (
+            <div key={news.id + "div"}>
+              <Card
+                title={news.webTitle}
+                date={news.webPublicationDate}
+                link={news.webUrl}
+                description={news.fields.bodyText.substring(0, 200) + "..."}
+              />
+            </div>
+          ))
+        ) : (
+          <p>No news available</p>
+        )}
+      </div>
     </>
   );
 }
