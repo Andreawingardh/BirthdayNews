@@ -102,8 +102,8 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input id="dateInput" type="date"></input>
+      <form className="search-form" onSubmit={handleSubmit}>
+        <input id="dateInput" type="date" />
         <button type="submit">Submit</button>
       </form>
       {oneYearLoading && <p>Loading...</p>}
@@ -117,7 +117,7 @@ function App() {
                 title={news.webTitle}
                 date={news.webPublicationDate}
                 link={news.webUrl}
-                description={news.fields.bodyText.substring(0, 200) + "..."}
+                description={news.fields.bodyText.substring(0, 300) + "..."}
               />
             </div>
           ))
@@ -134,7 +134,7 @@ function App() {
                 title={news.webTitle}
                 date={news.webPublicationDate}
                 link={news.webUrl}
-                description={news.fields.bodyText.substring(0, 200) + "..."}
+                description={news.fields.bodyText.substring(0, 300) + "..."}
               />
             </div>
           ))
@@ -151,7 +151,7 @@ function App() {
                 title={news.webTitle}
                 date={news.webPublicationDate}
                 link={news.webUrl}
-                description={news.fields.bodyText.substring(0, 200) + "..."}
+                description={news.fields.bodyText.substring(0, 300) + "..."}
               />
             </div>
           ))
