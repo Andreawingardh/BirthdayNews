@@ -51,21 +51,19 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(e.currentTarget.elements.dateInput.value);
-    let newsDate = e.currentTarget.elements.dateInput.value;
-    console.log(newsDate);
-    const originalDate = new Date(newsDate);
+    const inputDate = e.currentTarget.elements.dateInput.value;
 
-    const getPastDate = (yearsAgo) => {
-      const past = new Date(originalDate);
-      past.setFullYear(past.getFullYear() - yearsAgo);
-      return past.toISOString().split("T")[0]; // format as YYYY-MM-DD
+    const getPastDate = (dateStr, yearsAgo) => {
+      const parts = dateStr.split("-");
+      console.log(parts);
+      return `${Number(parts[0]) - yearsAgo}-${parts[1]}-${parts[2]}`;
     };
 
-    const oneYearAgo = getPastDate(1);
-    const fiveYearsAgo = getPastDate(5);
-    const tenYearsAgo = getPastDate(10);
+    const oneYearAgo = getPastDate(inputDate, 1);
+    const fiveYearsAgo = getPastDate(inputDate, 5);
+    const tenYearsAgo = getPastDate(inputDate, 10);
 
-    console.log("Selected date:", newsDate);
+    console.log("Selected date:", inputDate);
     console.log("1 year ago:", oneYearAgo);
     console.log("5 years ago:", fiveYearsAgo);
     console.log("10 years ago:", tenYearsAgo);
@@ -74,9 +72,10 @@ function App() {
       "from-date": oneYearAgo,
       "to-date": oneYearAgo,
       "api-key": import.meta.env.VITE_API_KEY,
-      "order-by": "newest",
+      "order-by": "oldest",
       "use-date": "published",
       "show-fields": "bodyText",
+      "section": "world",
     }));
 
     setSearchParamsFiveYearsAgo((prev) => ({
@@ -84,9 +83,10 @@ function App() {
       "from-date": fiveYearsAgo,
       "to-date": fiveYearsAgo,
       "api-key": import.meta.env.VITE_API_KEY,
-      "order-by": "newest",
+      "order-by": "oldest",
       "use-date": "published",
       "show-fields": "bodyText",
+      "section": "world",
     }));
 
     setSearchParamsTenYearsAgo((prev) => ({
@@ -94,9 +94,10 @@ function App() {
       "from-date": tenYearsAgo,
       "to-date": tenYearsAgo,
       "api-key": import.meta.env.VITE_API_KEY,
-      "order-by": "newest",
       "use-date": "published",
+      "order-by": "oldest",
       "show-fields": "bodyText",
+      "section": "world",
     }));
   }
 
@@ -106,7 +107,7 @@ function App() {
       <p>Enter any date and find out what happpened as far back as 1999.</p>
       <form className="search-form" onSubmit={handleSubmit}>
         <div>
-          <label for="dateInput">Please select a date</label>
+          <label htmlFor="dateInput">Please select a date</label>
           <input id="dateInput" type="date" />
           <button type="submit">Submit</button>
         </div>
