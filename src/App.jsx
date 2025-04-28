@@ -101,14 +101,19 @@ function App() {
   }
 
   return (
-    <>
+    <main>
+      <h1>Historical dates</h1>
+      <p>Enter any date and find out what happpened as far back as 1999.</p>
       <form className="search-form" onSubmit={handleSubmit}>
-        <input id="dateInput" type="date" />
-        <button type="submit">Submit</button>
+        <div>
+          <label for="dateInput">Please select a date</label>
+          <input id="dateInput" type="date" />
+          <button type="submit">Submit</button>
+        </div>
       </form>
       {oneYearLoading && <p>Loading...</p>}
 
-      <h3>This happened one year ago on this date:</h3>
+      <h2>This happened one year ago on this date:</h2>
       <div className="card-container">
         {newsDataOneYearAgo && newsDataOneYearAgo.length > 0 ? (
           newsDataOneYearAgo.slice(0, 3).map((news) => (
@@ -125,7 +130,7 @@ function App() {
           <p>Please select a date.</p>
         )}
       </div>
-      <h3>This happened five years ago on to this date:</h3>
+      <h2>This happened five years ago on to this date:</h2>
       <div className="card-container">
         {newsDataFiveYearsAgo && newsDataFiveYearsAgo.length > 0 ? (
           newsDataFiveYearsAgo.slice(0, 3).map((news) => (
@@ -142,7 +147,7 @@ function App() {
           <p>Please select a date.</p>
         )}
       </div>
-      <h3>This happened ten years ago on this date:</h3>
+      <h2>This happened ten years ago on this date:</h2>
       <div className="card-container">
         {newsDataTenYearsAgo && newsDataTenYearsAgo.length > 0 ? (
           newsDataTenYearsAgo.slice(0, 3).map((news) => (
@@ -159,7 +164,7 @@ function App() {
           <p>Please select a date.</p>
         )}
       </div>
-    </>
+    </main>
   );
 }
 
