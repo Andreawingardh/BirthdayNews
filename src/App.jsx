@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "./Components/Card";
 import useFetch from "./hooks/useFetch";
 import NewsSection from "./Components/NewsSection";
+import Form from "./Components/Form";
 
 function App() {
   const [showNews, setShowNews] = useState(false);
@@ -30,13 +31,7 @@ function App() {
     <main>
       <h1>Historical news</h1>
       <p>Enter any date and find out what happpened as far back as 1999.</p>
-      <form className="search-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="dateInput">Please select a date:</label>
-          <input id="dateInput" type="date" />
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <Form formAction={handleSubmit} />
       {showNews && (
         <>
           <NewsSection inputDate={oneYearAgo} yearsAgo="one" />
