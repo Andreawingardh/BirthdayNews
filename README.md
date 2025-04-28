@@ -4,19 +4,20 @@ Find out what happened on any given date (as long as it's not earlier than 1999)
 
 Historical News is a React-based web application that allows users to input any date and discover major world events from exactly one, five, and ten years earlier, pulling data from The Guardian API.
 
-🛠️ Built With
-• React
-• Axios
-• The Guardian Open Platform API
-• Custom React hooks
+🛠️ Built With:
+
+- React
+- Axios
+- The Guardian Open Platform API
+- Custom React hooks
 
 🔧 Installation
 
 1. Clone the repository:
 
 ```
-git clone https://github.com/your-username/historical-dates.git
-cd historical-dates
+git clone https://github.com/andreawingardh/BirthdayNews.git
+cd BirthdayNews
 ```
 
 2. Install dependencies:
@@ -37,7 +38,7 @@ VITE_API_KEY=your_guardian_api_key
 npm run dev
 ```
 
-🧑‍💻 Created by
+🧑‍💻 Created by:
 
 Andrea Wingårdh and Filip Lyrheden
 
