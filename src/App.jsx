@@ -103,7 +103,7 @@ function App() {
 
   return (
     <main>
-      <h1>Historical dates</h1>
+      <h1>Historical news</h1>
       <p>Enter any date and find out what happpened as far back as 1999.</p>
       <form className="search-form" onSubmit={handleSubmit}>
         <div className="form-group">

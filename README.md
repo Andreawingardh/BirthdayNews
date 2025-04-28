@@ -1,12 +1,44 @@
-# React + Vite
+# Historical News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Find out what happened on any given date (as long as it's not earlier than 1999) — one, five, and ten years ago — by fetching historical news headlines!
 
-Currently, two official plugins are available:
+Historical News is a React-based web application that allows users to input any date and discover major world events from exactly one, five, and ten years earlier, pulling data from The Guardian API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠️ Built With
+• React
+• Axios
+• The Guardian Open Platform API
+• Custom React hooks
 
-## Expanding the ESLint configuration
+🔧 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+
+```
+git clone https://github.com/your-username/historical-dates.git
+cd historical-dates
+```
+
+2. Install dependencies:
+
+```
+npm install
+```
+
+3. Set up your .env file:
+
+```
+VITE_API_KEY=your_guardian_api_key
+```
+
+4. Start the development server:
+
+```
+npm run dev
+```
+
+🧑‍💻 Created by
+
+Andrea Wingårdh and Filip Lyrheden
+
+This project is licensed under the MIT License — feel free to use and modify it!
