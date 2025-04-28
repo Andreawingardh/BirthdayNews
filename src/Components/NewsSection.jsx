@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 
 export default function NewsSection({ inputDate, yearsAgo }) {
+
   const [searchParams, setSearchParams] = useState(null);
   const [url] = useState("https://content.guardianapis.com/search");
 
@@ -15,7 +16,7 @@ export default function NewsSection({ inputDate, yearsAgo }) {
         "order-by": "oldest",
         "use-date": "published",
         "show-fields": "bodyText",
-        section: "world",
+        "section": "world",
       });
     }
   }, [inputDate]);

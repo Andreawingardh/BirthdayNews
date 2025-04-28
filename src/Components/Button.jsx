@@ -11,7 +11,8 @@ const StyledButton = styled.button`
   transition: border-color 0.25s;
 
   &:hover {
-    background-color: #640f7e;
+    background-color: #5d575f;
+    color: white;
   }
 
 `;
