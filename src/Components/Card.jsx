@@ -22,13 +22,13 @@ const NewsCardH2 = styled.h2`
 
 const NewsCardDate = styled.p`
   font-size: 0.875rem;
-  color: #999;
+  color: #6a6868;
   margin: 0 0 12px 0;
 `;
 
 const NewsCardP = styled.p`
   font-size: 1rem;
-  color: #555;
+  color: #353333;
   flex-grow: 1;
   margin-bottom: 16px;
 `;
@@ -42,7 +42,7 @@ const Card = ({ title, date, description, link }) => {
         <NewsCardP>{description}</NewsCardP>
       </div>
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <Button text="Read More" />
+        <Button text="Read full article here" />
       </a>
     </NewsCard>
   );
