@@ -1,7 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import Card from "./Components/Card";
-import useFetch from "./hooks/useFetch";
+import { useState } from "react";
 import NewsSection from "./Components/NewsSection";
 import Form from "./Components/Form";
 
