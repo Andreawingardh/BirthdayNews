@@ -14,11 +14,10 @@ export default function useFetch(url, searchParams) {
           params: searchParams,
         })
         .then(function (response) {
-          console.log(response.data.response.results);
           setData(response.data.response.results);
         })
         .catch(function (error) {
-          console.log(error);
+          throw new Error
         })
         .finally(function () {
           setLoading(false);
