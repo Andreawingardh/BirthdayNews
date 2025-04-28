@@ -75,7 +75,7 @@ function App() {
       "order-by": "oldest",
       "use-date": "published",
       "show-fields": "bodyText",
-      "section": "world",
+      section: "world",
     }));
 
     setSearchParamsFiveYearsAgo((prev) => ({
@@ -86,7 +86,7 @@ function App() {
       "order-by": "oldest",
       "use-date": "published",
       "show-fields": "bodyText",
-      "section": "world",
+      section: "world",
     }));
 
     setSearchParamsTenYearsAgo((prev) => ({
@@ -97,7 +97,7 @@ function App() {
       "use-date": "published",
       "order-by": "oldest",
       "show-fields": "bodyText",
-      "section": "world",
+      section: "world",
     }));
   }
 
@@ -106,8 +106,8 @@ function App() {
       <h1>Historical dates</h1>
       <p>Enter any date and find out what happpened as far back as 1999.</p>
       <form className="search-form" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="dateInput">Please select a date</label>
+        <div className="form-group">
+          <label htmlFor="dateInput">Please select a date:</label>
           <input id="dateInput" type="date" />
           <button type="submit">Submit</button>
         </div>
