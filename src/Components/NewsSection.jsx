@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 
 export default function NewsSection({ inputDate, yearsAgo }) {
-
   const [searchParams, setSearchParams] = useState(null);
   const [url] = useState("https://content.guardianapis.com/search");
 
@@ -16,13 +15,13 @@ export default function NewsSection({ inputDate, yearsAgo }) {
         "order-by": "oldest",
         "use-date": "published",
         "show-fields": "bodyText",
-        "section": "world",
+        section: "world",
       });
     }
   }, [inputDate]);
 
   const {
-    data: newsDataTimeAgo, 
+    data: newsDataTimeAgo,
     error: timeAgoError,
     loading: timeAgoLoading,
   } = useFetch(url, searchParams);
@@ -54,6 +53,8 @@ export default function NewsSection({ inputDate, yearsAgo }) {
               : inputDate
               ? "No news found for this date."
               : "Please select a date."}
+
+            {timeAgoError && "Sorry, there was an error loading the news"}
           </p>
         )}
       </div>
