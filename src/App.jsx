@@ -32,9 +32,9 @@ function App() {
       <Form formAction={handleSubmit} />
       {showNews && (
         <>
-          <NewsSection inputDate={oneYearAgo} yearsAgo="one" />
-          <NewsSection inputDate={fiveYearsAgo} yearsAgo="five" />
-          <NewsSection inputDate={tenYearsAgo} yearsAgo="ten" />
+          <NewsSection inputDate={oneYearAgo} yearsAgo="one year" />
+          <NewsSection inputDate={fiveYearsAgo} yearsAgo="five years" />
+          <NewsSection inputDate={tenYearsAgo} yearsAgo="ten years" />
         </>
       )}
     </main>

@@ -28,7 +28,7 @@ export default function NewsSection({ inputDate, yearsAgo }) {
 
   return (
     <>
-      <h2>This happened {yearsAgo} years ago on this date:</h2>
+      <h2>This happened {yearsAgo} ago on this date:</h2>
       {timeAgoLoading && <p>Loading news...</p>}
 
       <div className="card-container">
