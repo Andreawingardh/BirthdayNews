@@ -33,6 +33,26 @@ const NewsCardP = styled.p`
   margin-bottom: 16px;
 `;
 
+const NewsCardLink = styled.a`
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  
+  &:link {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: #5d575f;
+    color: white;
+  }
+`;
+
 const Card = ({ title, date, description, link }) => {
   return (
     <NewsCard>
@@ -41,9 +61,7 @@ const Card = ({ title, date, description, link }) => {
         <NewsCardDate>{new Date(date).toLocaleDateString()}</NewsCardDate>
         <NewsCardP>{description}</NewsCardP>
       </div>
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        <Button text="Read full article here" />
-      </a>
+      <NewsCardLink href={link}>Read full article here</NewsCardLink>
     </NewsCard>
   );
 };
