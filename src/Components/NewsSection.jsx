@@ -15,7 +15,7 @@ export default function NewsSection({ inputDate, yearsAgo }) {
         "order-by": "oldest",
         "use-date": "published",
         "show-fields": "bodyText",
-        section: "world",
+        "section": "world",
       });
     }
   }, [inputDate]);
