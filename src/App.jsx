@@ -27,8 +27,8 @@ function App() {
 
   return (
     <main>
-      <h1>Historical news</h1>
-      <p>Enter any date and find out what happpened as far back as 1999.</p>
+      <h1>Throwback News</h1>
+      <p>Enter any date and find out what happened one, five and ten years before that date. As far back as 1999.</p>
       <Form formAction={handleSubmit} />
       {showNews && (
         <>
