@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Button from "./Button";
 
 const NewsCard = styled.div`
   background-color: #f9f9f9;
