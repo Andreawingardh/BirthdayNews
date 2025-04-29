@@ -1,8 +1,8 @@
-# Historical News
+# Throwback News
 
-Find out what happened on any given date (as long as it's not earlier than 1999) — one, five, and ten years ago — by fetching historical news headlines!
+Find out what happened on any given date (as long as it's not earlier than 1999) — one, five, and ten years ago — by fetching old news headlines!
 
-Historical News is a React-based web application that allows users to input any date and discover major world events from exactly one, five, and ten years earlier, pulling data from The Guardian API.
+Throwback News is a React-based web application that allows users to input any date and discover major world events from exactly one, five, and ten years earlier, pulling data from The Guardian API.
 
 🛠️ Built With:
 
